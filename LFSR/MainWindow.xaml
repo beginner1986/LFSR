@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LFSR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="220" Width="800" ResizeMode="NoResize">
-    <Grid Margin="10, 10, 10, 10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="750">
+        Title="MainWindow" Height="250" Width="800" ResizeMode="NoResize" Background="#FFDADADA">
+    <Grid Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="750">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="70"/>
@@ -17,6 +17,7 @@
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -100,5 +101,10 @@
         <TextBox Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="3" FontSize="20"/>
         <TextBox Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="3" FontSize="20"/>
         <Button Margin="2, 2, 2, 2" Grid.Column="6" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Generuj</Button>
+   
+        <!-- status bar-->
+        <Separator Grid.Row="4" Grid.ColumnSpan="7" VerticalAlignment="Top" BorderBrush="#FF606060" />
+        <Label Grid.Column="0" Grid.Row="4" VerticalContentAlignment="Center" FontSize="20" Content="Status:"/>
+        <Label Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="6" VerticalContentAlignment="Center" FontSize="20" Content="OK"/>
     </Grid>
 </Window>
