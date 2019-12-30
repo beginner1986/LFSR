@@ -5,8 +5,100 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LFSR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="220" Width="800" ResizeMode="NoResize">
+    <Grid Margin="10, 10, 10, 10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="750">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <!-- top row labels-->
+        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Content="Długość rejestru:" />
+        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Content="Wyraz wolny:" />
+        <Label Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" Content="Funkcja:" />
+        <Label Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" Content="Zawartość rejestru:" />
+        
+        <!-- LFSR1 row -->
+        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="1" FontSize="20" Content="LFSR1"/>
+        <ComboBox Margin="2, 2, 2, 2" Grid.Column="1" Grid.Row="1" FontSize="20" HorizontalAlignment="Center">
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>11</ComboBoxItem>
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>13</ComboBoxItem>
+            <ComboBoxItem>14</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">15</ComboBoxItem>
+            <ComboBoxItem>16</ComboBoxItem>
+            <ComboBoxItem>17</ComboBoxItem>
+            <ComboBoxItem>18</ComboBoxItem>
+            <ComboBoxItem>19</ComboBoxItem>
+            <ComboBoxItem>20</ComboBoxItem>
+        </ComboBox>
+        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Content="f(x1)"/>
+        <ComboBox Margin="2, 2, 2, 2" Grid.Column="3" Grid.Row="1" FontSize="20">
+            <ComboBoxItem IsSelected="True">0</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+        </ComboBox>
+        <TextBox Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="1" FontSize="20"/>
+        <TextBox Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="1" FontSize="20"/>
+        <Button Margin="2, 2, 2, 2" Grid.Column="6" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Generuj</Button>
 
+        <!-- LFSR2 row -->
+        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="2" FontSize="20" Content="LFSR2"/>
+        <ComboBox Margin="2, 2, 2, 2" Grid.Column="1" Grid.Row="2" FontSize="20" HorizontalAlignment="Center">
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>11</ComboBoxItem>
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>13</ComboBoxItem>
+            <ComboBoxItem>14</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">15</ComboBoxItem>
+            <ComboBoxItem>16</ComboBoxItem>
+            <ComboBoxItem>17</ComboBoxItem>
+            <ComboBoxItem>18</ComboBoxItem>
+            <ComboBoxItem>19</ComboBoxItem>
+            <ComboBoxItem>20</ComboBoxItem>
+        </ComboBox>
+        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="f(x2)"/>
+        <ComboBox Margin="2, 2, 2, 2" Grid.Column="3" Grid.Row="2" FontSize="20">
+            <ComboBoxItem IsSelected="True">0</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+        </ComboBox>
+        <TextBox Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="2" FontSize="20"/>
+        <TextBox Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="2" FontSize="20"/>
+        <Button Margin="2, 2, 2, 2" Grid.Column="6" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Generuj</Button>
+
+        <!-- LFSR3 row -->
+        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="3" FontSize="20" Content="LFSR3"/>
+        <ComboBox Margin="2, 2, 2, 2" Grid.Column="1" Grid.Row="3" FontSize="20" HorizontalAlignment="Center">
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>11</ComboBoxItem>
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>13</ComboBoxItem>
+            <ComboBoxItem>14</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">15</ComboBoxItem>
+            <ComboBoxItem>16</ComboBoxItem>
+            <ComboBoxItem>17</ComboBoxItem>
+            <ComboBoxItem>18</ComboBoxItem>
+            <ComboBoxItem>19</ComboBoxItem>
+            <ComboBoxItem>20</ComboBoxItem>
+        </ComboBox>
+        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="f(x3)"/>
+        <ComboBox Margin="2, 2, 2, 2" Grid.Column="3" Grid.Row="3" FontSize="20">
+            <ComboBoxItem IsSelected="True">0</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+        </ComboBox>
+        <TextBox Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="3" FontSize="20"/>
+        <TextBox Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="3" FontSize="20"/>
+        <Button Margin="2, 2, 2, 2" Grid.Column="6" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Generuj</Button>
     </Grid>
 </Window>
