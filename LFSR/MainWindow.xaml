@@ -19,9 +19,9 @@
             </Separator>
             <Label Content="Typ generatora:" Margin="10 0 0 0" />
             <!-- TODO: Checked="" -->
-            <RadioButton Name="geffe" Margin="10 0 0 0" VerticalAlignment="Center">Generator Geffe'go</RadioButton>
-            <RadioButton Name="stopAndGo" Margin="10 0 0 0" VerticalAlignment="Center">Stop-ang-Go</RadioButton>
-            <RadioButton Name="shrinking" Margin="10 0 0 0" VerticalAlignment="Center">Shrinking Generator</RadioButton>
+            <RadioButton Name="geffe" Margin="10 0 0 0" VerticalAlignment="Center" Checked="geffeChecked">Generator Geffe'go</RadioButton>
+            <RadioButton Name="stopAndGo" Margin="10 0 0 0" VerticalAlignment="Center" Checked="stopAndGoChecked">Stop-ang-Go</RadioButton>
+            <RadioButton Name="shrinking" Margin="10 0 0 0" VerticalAlignment="Center" Checked="shrinkingChecked">Shrinking Generator</RadioButton>
         </WrapPanel>
         <Separator/>
         
@@ -52,8 +52,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="initialState1" Width="220" Margin="10 0 10 0" />
-                <TextBox Name="currentState1" Width="220" Margin="0 0 10 0" />
+                <TextBox Name="initialState1" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <TextBox Name="currentState1" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR2 -->
@@ -72,8 +72,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="initialState2" Width="220" Margin="10 0 10 0" />
-                <TextBox Name="currentState2" Width="220" Margin="0 0 10 0" />
+                <TextBox Name="initialState2" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <TextBox Name="currentState2" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR3 -->
@@ -92,8 +92,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="initialState3" Width="220" Margin="10 0 10 0" />
-                <TextBox Name="currentState3" Width="220" Margin="0 0 10 0" />
+                <TextBox Name="initialState3" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <TextBox Name="currentState3" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
         </StackPanel>
