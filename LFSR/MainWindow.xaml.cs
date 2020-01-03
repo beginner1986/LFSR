@@ -160,11 +160,23 @@ namespace LFSR
         {
             string result = "";
 
+            bool reg1;
+            bool reg2 = false;
+            bool reg3 = false;
+            bool bit;
+
             while(result.Length < len)
             {
-                
-                // TODO
+                reg1 = lfsr1.Shift();
 
+                if (reg1)
+                    lfsr2.Shift();
+                else
+                    reg3 = lfsr3.Shift();
+
+                bit = reg2 ^ reg3;
+
+                result += bit ? "1" : "0";
             }
 
             return result;
