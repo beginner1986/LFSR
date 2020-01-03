@@ -160,7 +160,12 @@ namespace LFSR
         {
             string result = "";
 
-            // TODO
+            while(result.Length < len)
+            {
+                
+                // TODO
+
+            }
 
             return result;
         }
@@ -169,7 +174,18 @@ namespace LFSR
         {
             string result = "";
 
-            // TODO
+            while (result.Length < len)
+            {
+                bool reg1 = lfsr1.Shift();
+                bool reg2 = lfsr2.Shift();
+                bool bit;
+
+                if (reg1)
+                {
+                    bit = reg2;
+                    result += bit ? "1" : "0";
+                }
+            }
 
             return result;
         }
