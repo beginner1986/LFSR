@@ -104,5 +104,74 @@ namespace LFSR
             lfsr3.Shift();
             register3.Text = lfsr3.ToString();
         }
+
+        private void GenerateButtonClick(object sender, RoutedEventArgs e)
+        {
+            // check if is cpihertextLength empty
+            if (cipherLenth.Text == "")
+            {
+                resultTextBox.Text = "Podaj długość szyfru w bitach.";
+                return;
+            }
+
+            // check if given ciphertextLength is int correct value
+            bool correctLength = int.TryParse(cipherLenth.Text, out int length);
+            if (!correctLength)
+            {
+                resultTextBox.Text = "Podana długość szyfru musi być liczbą całkowitą.";
+                return;
+            }
+
+            // generetor type choose
+            if(geffe.IsChecked == true)
+                resultTextBox.Text = GeffeGenerator(length);
+            else if(stopAndGo.IsChecked == true)
+                resultTextBox.Text = StopAndGoGenerator(length);
+            else if(shrinking.IsChecked == true)
+                resultTextBox.Text = ShrinkingGenerator(length);
+            else
+                resultTextBox.Text = "Zaznacz typ generatora, który chcesżyć";
+
+            // update registers values in TextBoxes
+            register1.Text = lfsr1.ToString();
+            register2.Text = lfsr2.ToString();
+            register3.Text = lfsr3.ToString();
+        }
+
+        private string GeffeGenerator(int len)
+        {
+            string result = "";
+
+            for(int i=0; i<len; i++)
+            {
+                bool reg1 = lfsr1.Shift();
+                bool reg2 = lfsr2.Shift();
+                bool reg3 = lfsr3.Shift();
+
+                bool bit = (reg1 & reg2) ^(!reg2 & reg3);
+
+                result += bit ? "1" : "0";
+            }
+
+            return result;
+        }
+
+        private string StopAndGoGenerator(int len)
+        {
+            string result = "";
+
+            // TODO
+
+            return result;
+        }
+
+        private string ShrinkingGenerator(int len)
+        {
+            string result = "";
+
+            // TODO
+
+            return result;
+        }
     }
 }
