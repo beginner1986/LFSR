@@ -86,5 +86,23 @@ namespace LFSR
             register3.Text = lfsr3.ToString();
             function3.Text = lfsr3.FunctionToString();
         }
+
+        private void ButtonShift1Click(object sender, RoutedEventArgs e)
+        {
+            lfsr1.Shift();
+            register1.Text = lfsr1.ToString();
+        }
+
+        private void ButtonShift2Click(object sender, RoutedEventArgs e)
+        {
+            lfsr2.Shift();
+            register2.Text = lfsr2.ToString();
+        }
+
+        private void ButtonShift3Click(object sender, RoutedEventArgs e)
+        {
+            lfsr3.Shift();
+            register3.Text = lfsr3.ToString();
+        }
     }
 }

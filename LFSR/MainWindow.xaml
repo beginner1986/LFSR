@@ -54,7 +54,7 @@
                 </ComboBox>
                 <TextBox Name="function1" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register1" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
-                <Button Width="130">Shift</Button>
+                <Button Width="130" Click="ButtonShift1Click">Shift</Button>
             </WrapPanel>
             <!-- LFSR2 -->
             <WrapPanel Name="lfsr2Panel" Margin="0 2 0 2">
@@ -74,7 +74,7 @@
                 </ComboBox>
                 <TextBox Name="function2" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register2" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
-                <Button Width="130">Shift</Button>
+                <Button Width="130" Click="ButtonShift2Click">Shift</Button>
             </WrapPanel>
             <!-- LFSR3 -->
             <WrapPanel Name="lfsr3Panel" Margin="0 2 0 2">
@@ -94,7 +94,7 @@
                 </ComboBox>
                 <TextBox Name="function3" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register3" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
-                <Button Width="130">Shift</Button>
+                <Button Width="130" Click="ButtonShift3Click">Shift</Button>
             </WrapPanel>
         </StackPanel>
         

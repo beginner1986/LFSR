@@ -27,7 +27,12 @@ namespace LFSR
         // shift register each type
         public bool Shift()
         {
-            bool result = Register[Register.Length - 1] ^ CountFunction();
+            bool result = Register[^1]; // ^1 = Register.Length - 1
+
+            for (int i=1; i<Function.Length; i++)
+            {
+                result ^= Function[i];
+            }
 
             for(int i= Register.Length - 1; i>0; i--)
             {
@@ -64,18 +69,6 @@ namespace LFSR
                     result += '1';
                 else
                     result += '0';
-            }
-
-            return result;
-        }
-
-        private bool CountFunction()
-        {
-            bool result = Function[0];
-
-            for(int i=1; i<Function.Length; i++)
-            {
-                result ^= Function[i];
             }
 
             return result;
