@@ -122,20 +122,13 @@ namespace LFSR
                 return;
             }
 
-            // generetor type choose
-            if(geffe.IsChecked == true)
-                resultTextBox.Text = GeffeGenerator(length);
-            else if(stopAndGo.IsChecked == true)
-                resultTextBox.Text = StopAndGoGenerator(length);
-            else if(shrinking.IsChecked == true)
-                resultTextBox.Text = ShrinkingGenerator(length);
-            else
-                resultTextBox.Text = "Zaznacz typ generatora, który chcesżyć";
+            // run correct generator
+            // update result TextBox and registers RextBoxes
+            // generate sample stream for tests
+            string sample = RunGenerators(length);
 
-            // update registers values in TextBoxes
-            register1.Text = lfsr1.ToString();
-            register2.Text = lfsr2.ToString();
-            register3.Text = lfsr3.ToString();
+            // perform the tests and update results in GUI
+            PerformTests(sample);
         }
 
         private string GeffeGenerator(int len)
@@ -200,6 +193,75 @@ namespace LFSR
             }
 
             return result;
+        }
+
+        private bool MonobitTest(string sample)
+        {
+            // TODO
+            return false;
+        }
+
+        private bool PokerTest(string sample)
+        {
+            // TODO
+            return false;
+        }
+
+        private bool LongRunsTest(string sample)
+        {
+            // TODO
+            return false;
+        }
+
+        private string RunGenerators(int length)
+        {
+            string sample = "";
+            int sampleLenght = 20000;
+
+            if (geffe.IsChecked == true)
+            {
+                resultTextBox.Text = GeffeGenerator(length);
+                sample = GeffeGenerator(sampleLenght);
+            }
+            else if (stopAndGo.IsChecked == true)
+            {
+                resultTextBox.Text = StopAndGoGenerator(length);
+                sample = StopAndGoGenerator(sampleLenght);
+            }
+            else if (shrinking.IsChecked == true)
+            {
+                resultTextBox.Text = ShrinkingGenerator(length);
+                sample = ShrinkingGenerator(sampleLenght);
+            }
+            else
+            {
+                resultTextBox.Text = "Zaznacz typ generatora, który chcesżyć";
+            }
+
+            // update registers values in TextBoxes
+            register1.Text = lfsr1.ToString();
+            register2.Text = lfsr2.ToString();
+            register3.Text = lfsr3.ToString();
+
+            return sample;
+        }
+
+        private void PerformTests(string sample)
+        {
+            if (MonobitTest(sample))
+                monobitTest.Content = "OK";
+            else
+                monobitTest.Content = "FAIL";
+
+            if (PokerTest(sample))
+                pokerTest.Content = "OK";
+            else
+                pokerTest.Content = "FAIL";
+
+            if (LongRunsTest(sample))
+                longRunsTest.Content = "OK";
+            else
+                longRunsTest.Content = "FAIL";
         }
     }
 }

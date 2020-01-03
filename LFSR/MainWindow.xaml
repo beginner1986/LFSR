@@ -111,7 +111,12 @@
         <!-- tests results -->
         <WrapPanel Margin="0 0 0 5">
             <Label Content="Wyniki testów:" />
-            <Label Content="// TODO"/>
+            <Label Content="pojedynczych bitów"/>
+            <Label Name="monobitTest" Content=" "/>
+            <Label Content="pkerowy"/>
+            <Label Name="pokerTest" Content=" "/>
+            <Label Content="długich podciągów"/>
+            <Label Name="longRunsTest" Content=" "/>
         </WrapPanel>
 
     </StackPanel>
