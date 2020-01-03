@@ -197,8 +197,18 @@ namespace LFSR
 
         private bool MonobitTest(string sample)
         {
-            // TODO
-            return false;
+            int onesCount = 0;
+
+            foreach(char c in sample)
+            {
+                if (c == '1')
+                    onesCount++;
+            }
+
+            if (onesCount < 9725 || onesCount > 10275)
+                return false;
+            else
+                return true;
         }
 
         private bool PokerTest(string sample)
