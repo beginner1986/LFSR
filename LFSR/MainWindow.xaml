@@ -5,106 +5,114 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LFSR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="900" ResizeMode="NoResize" Background="#FFDADADA">
-    <Grid Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="890">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="90"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="80"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+        Title="MainWindow" Height="510" Width="750" ResizeMode="NoResize" Background="#FFDADADA">
 
-        <!-- top row labels-->
-        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Content="Długość rejestru:" />
-        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Content="Wyraz wolny:" />
-        <Label Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" Content="Funkcja:" />
-        <Label Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" Content="Zawartość rejestru:" />
+    <StackPanel Margin="20 0 20 5">
+        <!-- generator type choosing -->
+        <WrapPanel Margin="0 5 0 5">
+            <Label Content="Długość szyfru:" Margin="0 0 16 0"/>
+            <TextBox Name="cipherLenth" Width="100" Margin="0 0 20 0"/>
+            <Separator>
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
+            <Label Content="Typ generatora:" Margin="10 0 0 0" />
+            <!-- TODO: Checked="" -->
+            <RadioButton Name="geffe" Margin="10 0 0 0" VerticalAlignment="Center">Generator Geffe'go</RadioButton>
+            <RadioButton Name="stopAndGo" Margin="10 0 0 0" VerticalAlignment="Center">Stop-ang-Go</RadioButton>
+            <RadioButton Name="shrinking" Margin="10 0 0 0" VerticalAlignment="Center">Shrinking Generator</RadioButton>
+        </WrapPanel>
+        <Separator/>
+        
+        <!-- LFSRs parameters -->
+        <StackPanel Margin="0 5 0 5" Width="728">
+            <!-- labels -->
+            <WrapPanel>
+                <Label Content="Nazwa" />
+                <Label Content="Długość" Margin="5 0 0 0" />
+                <Label Content="Stan początkowy rejestru" />
+                <Label Content="Kolejny stan rejestru" Margin="90 0 0 0" />
+                <Label Content="Krpok rejestru" Margin="110 0 0 0" />
+            </WrapPanel>
 
-        <!-- LFSR1 row -->
-        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="1" FontSize="20" Content="LFSR1"/>
-        <ComboBox Name="lenth1" Margin="2, 2, 2, 2" Grid.Column="1" Grid.Row="1" FontSize="20" HorizontalAlignment="Center">
-            <ComboBoxItem>10</ComboBoxItem>
-            <ComboBoxItem>11</ComboBoxItem>
-            <ComboBoxItem>12</ComboBoxItem>
-            <ComboBoxItem>13</ComboBoxItem>
-            <ComboBoxItem>14</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">15</ComboBoxItem>
-            <ComboBoxItem>16</ComboBoxItem>
-            <ComboBoxItem>17</ComboBoxItem>
-            <ComboBoxItem>18</ComboBoxItem>
-            <ComboBoxItem>19</ComboBoxItem>
-            <ComboBoxItem>20</ComboBoxItem>
-        </ComboBox>
-        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Content="f(x1)"/>
-        <ComboBox Name="free1" Margin="2, 2, 2, 2" Grid.Column="3" Grid.Row="1" FontSize="20">
-            <ComboBoxItem IsSelected="True">0</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-        </ComboBox>
-        <TextBox Name="function1" Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="1" FontSize="20"/>
-        <TextBox Name="register1" Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="1" FontSize="20"/>
-        <Button Margin="0,5,0,0" Grid.Column="6" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button1Click">Generuj</Button>
+            <!-- LFSR1 -->
+            <WrapPanel Name="lfsr1Panel" Margin="0 2 0 2">
+                <Label Content="LFSR1" Margin="0 0 10 0"/>
+                <ComboBox Name="lenth1" Margin="2, 2, 2, 2" HorizontalAlignment="Center">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>11</ComboBoxItem>
+                    <ComboBoxItem>12</ComboBoxItem>
+                    <ComboBoxItem>13</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">15</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>17</ComboBoxItem>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>19</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="initialState1" Width="220" Margin="10 0 10 0" />
+                <TextBox Name="currentState1" Width="220" Margin="0 0 10 0" />
+                <Button Width="130">Shift</Button>
+            </WrapPanel>
+            <!-- LFSR2 -->
+            <WrapPanel Name="lfsr2Panel" Margin="0 2 0 2">
+                <Label Content="LFSR2" Margin="0 0 10 0"/>
+                <ComboBox Name="lenth2" Margin="2, 2, 2, 2" HorizontalAlignment="Center">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>11</ComboBoxItem>
+                    <ComboBoxItem>12</ComboBoxItem>
+                    <ComboBoxItem>13</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">15</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>17</ComboBoxItem>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>19</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="initialState2" Width="220" Margin="10 0 10 0" />
+                <TextBox Name="currentState2" Width="220" Margin="0 0 10 0" />
+                <Button Width="130">Shift</Button>
+            </WrapPanel>
+            <!-- LFSR3 -->
+            <WrapPanel Name="lfsr3Panel" Margin="0 2 0 2">
+                <Label Content="LFSR3" Margin="0 0 10 0"/>
+                <ComboBox Name="lenth3" Margin="2, 2, 2, 2" HorizontalAlignment="Center">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>11</ComboBoxItem>
+                    <ComboBoxItem>12</ComboBoxItem>
+                    <ComboBoxItem>13</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">15</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>17</ComboBoxItem>
+                    <ComboBoxItem>18</ComboBoxItem>
+                    <ComboBoxItem>19</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="initialState3" Width="220" Margin="10 0 10 0" />
+                <TextBox Name="currentState3" Width="220" Margin="0 0 10 0" />
+                <Button Width="130">Shift</Button>
+            </WrapPanel>
+        </StackPanel>
+        
+        <!-- generate / reset button -->
+        <Button Margin="0 5 0 5" Height="30">Generuj</Button>
+        
+        <!-- results -->
+        <StackPanel Margin="0 0 0 5">
+            <Label Content="Wygenerowany ciąg:" />
+            <TextBox Name="resultString" Height="200"></TextBox>
+        </StackPanel>
+        <Separator/>
+        
+        <!-- tests results -->
+        <WrapPanel Margin="0 0 0 5">
+            <Label Content="Wyniki testów:" />
+            <Label Content="// TODO"/>
+        </WrapPanel>
 
-        <!-- LFSR2 row -->
-        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="2" FontSize="20" Content="LFSR2"/>
-        <ComboBox Name="lenth2" Margin="2, 2, 2, 2" Grid.Column="1" Grid.Row="2" FontSize="20" HorizontalAlignment="Center">
-            <ComboBoxItem>10</ComboBoxItem>
-            <ComboBoxItem>11</ComboBoxItem>
-            <ComboBoxItem>12</ComboBoxItem>
-            <ComboBoxItem>13</ComboBoxItem>
-            <ComboBoxItem>14</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">15</ComboBoxItem>
-            <ComboBoxItem>16</ComboBoxItem>
-            <ComboBoxItem>17</ComboBoxItem>
-            <ComboBoxItem>18</ComboBoxItem>
-            <ComboBoxItem>19</ComboBoxItem>
-            <ComboBoxItem>20</ComboBoxItem>
-        </ComboBox>
-        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="f(x2)"/>
-        <ComboBox Name="free2" Margin="2, 2, 2, 2" Grid.Column="3" Grid.Row="2" FontSize="20">
-            <ComboBoxItem IsSelected="True">0</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-        </ComboBox>
-        <TextBox Name="function2" Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="2" FontSize="20"/>
-        <TextBox Name="register2" Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="2" FontSize="20"/>
-        <Button Margin="2, 2, 2, 2" Grid.Column="6" Grid.Row="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button2Click">Generuj</Button>
-
-        <!-- LFSR3 row -->
-        <Label Margin="2, 2, 2, 2" Grid.Column="0" Grid.Row="3" FontSize="20" Content="LFSR3"/>
-        <ComboBox Name="lenth3" Margin="2, 2, 2, 2" Grid.Column="1" Grid.Row="3" FontSize="20" HorizontalAlignment="Center">
-            <ComboBoxItem>10</ComboBoxItem>
-            <ComboBoxItem>11</ComboBoxItem>
-            <ComboBoxItem>12</ComboBoxItem>
-            <ComboBoxItem>13</ComboBoxItem>
-            <ComboBoxItem>14</ComboBoxItem>
-            <ComboBoxItem IsSelected="True">15</ComboBoxItem>
-            <ComboBoxItem>16</ComboBoxItem>
-            <ComboBoxItem>17</ComboBoxItem>
-            <ComboBoxItem>18</ComboBoxItem>
-            <ComboBoxItem>19</ComboBoxItem>
-            <ComboBoxItem>20</ComboBoxItem>
-        </ComboBox>
-        <Label Margin="2, 2, 2, 2" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Content="f(x3)"/>
-        <ComboBox Name="free3" Margin="2, 2, 2, 2" Grid.Column="3" Grid.Row="3" FontSize="20">
-            <ComboBoxItem IsSelected="True">0</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-        </ComboBox>
-        <TextBox Name="function3" Margin="2, 2, 2, 2" Grid.Column="4" Grid.Row="3" FontSize="20"/>
-        <TextBox Name="register3" Margin="2, 2, 2, 2" Grid.Column="5" Grid.Row="3" FontSize="20"/>
-        <Button Margin="2, 2, 2, 2" Grid.Column="6" Grid.Row="3" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button3Click">Generuj</Button>
-
-        <!-- status bar-->
-        <Separator Grid.Row="4" Grid.ColumnSpan="7" VerticalAlignment="Top" BorderBrush="#FF606060" />
-        <Label Grid.Column="0" Grid.Row="4" VerticalContentAlignment="Center" FontSize="20" Content="Status:"/>
-        <Label Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="6" VerticalContentAlignment="Center" FontSize="20" Content="OK"/>
-    </Grid>
+    </StackPanel>
 </Window>
