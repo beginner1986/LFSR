@@ -20,12 +20,26 @@ namespace LFSR
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Lfsr lfsr1 = new Lfsr(15);
+        private Lfsr lfsr2 = new Lfsr(15);
+        private Lfsr lfsr3 = new Lfsr(15);
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            // display functions for registers
+            function1.Text = lfsr1.FunctionToString();
+            function2.Text = lfsr2.FunctionToString();
+            function3.Text = lfsr3.FunctionToString();
+
+            // display registers values
+            register1.Text = lfsr1.ToString();
+            register2.Text = lfsr2.ToString();
+            register3.Text = lfsr3.ToString();
         }
 
-        private void geffeChecked(object sender, RoutedEventArgs e)
+        private void GeffeChecked(object sender, RoutedEventArgs e)
         {
             // enable needed registers
             lfsr1Panel.IsEnabled = true;
@@ -33,7 +47,7 @@ namespace LFSR
             lfsr3Panel.IsEnabled = true;
         }
 
-        private void stopAndGoChecked(object sender, RoutedEventArgs e)
+        private void StopAndGoChecked(object sender, RoutedEventArgs e)
         {
             // enable needed registers
             lfsr1Panel.IsEnabled = true;
@@ -41,12 +55,36 @@ namespace LFSR
             lfsr3Panel.IsEnabled = false;
         }
 
-        private void shrinkingChecked(object sender, RoutedEventArgs e)
+        private void ShrinkingChecked(object sender, RoutedEventArgs e)
         {
             // enable needed registers
             lfsr1Panel.IsEnabled = true;
             lfsr2Panel.IsEnabled = true;
             lfsr3Panel.IsEnabled = true;
+        }
+        
+        private void Length1DropDownClosed(object sender, EventArgs e)
+        {
+            int len = int.Parse(length1.Text);
+            lfsr1 = new Lfsr(len);
+            register1.Text = lfsr1.ToString();
+            function1.Text = lfsr1.FunctionToString();
+        }
+
+        private void Length2DropDownClosed(object sender, EventArgs e)
+        {
+            int len = int.Parse(length2.Text);
+            lfsr2 = new Lfsr(len);
+            register2.Text = lfsr2.ToString();
+            function2.Text = lfsr2.FunctionToString();
+        }
+
+        private void Length3DropDownClosed(object sender, EventArgs e)
+        {
+            int len = int.Parse(length3.Text);
+            lfsr3 = new Lfsr(len);
+            register3.Text = lfsr3.ToString();
+            function3.Text = lfsr3.FunctionToString();
         }
     }
 }

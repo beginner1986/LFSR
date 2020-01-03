@@ -19,9 +19,9 @@
             </Separator>
             <Label Content="Typ generatora:" Margin="10 0 0 0" />
             <!-- TODO: Checked="" -->
-            <RadioButton Name="geffe" Margin="10 0 0 0" VerticalAlignment="Center" Checked="geffeChecked">Generator Geffe'go</RadioButton>
-            <RadioButton Name="stopAndGo" Margin="10 0 0 0" VerticalAlignment="Center" Checked="stopAndGoChecked">Stop-ang-Go</RadioButton>
-            <RadioButton Name="shrinking" Margin="10 0 0 0" VerticalAlignment="Center" Checked="shrinkingChecked">Shrinking Generator</RadioButton>
+            <RadioButton Name="geffe" Margin="10 0 0 0" VerticalAlignment="Center" Checked="GeffeChecked">Generator Geffe'go</RadioButton>
+            <RadioButton Name="stopAndGo" Margin="10 0 0 0" VerticalAlignment="Center" Checked="StopAndGoChecked">Stop-ang-Go</RadioButton>
+            <RadioButton Name="shrinking" Margin="10 0 0 0" VerticalAlignment="Center" Checked="ShrinkingChecked">Shrinking Generator</RadioButton>
         </WrapPanel>
         <Separator/>
         
@@ -32,14 +32,14 @@
                 <Label Content="Nazwa" />
                 <Label Content="Długość" Margin="5 0 0 0" />
                 <Label Content="Funkcja w pętli sprzężenia zwrotnego" />
-                <Label Content="Kolejny stan rejestru" Margin="25 0 0 0" />
+                <Label Content="Obecny stan rejestru" Margin="22 0 0 0" />
                 <Label Content="Krok rejestru" Margin="110 0 0 0" />
             </WrapPanel>
 
             <!-- LFSR1 -->
             <WrapPanel Name="lfsr1Panel" Margin="0 2 0 2">
                 <Label Content="LFSR1" Margin="0 0 10 0"/>
-                <ComboBox Name="lenth1" Margin="2, 2, 2, 2" HorizontalAlignment="Center">
+                <ComboBox Name="length1" Margin="2, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="Length1DropDownClosed">
                     <ComboBoxItem>10</ComboBoxItem>
                     <ComboBoxItem>11</ComboBoxItem>
                     <ComboBoxItem>12</ComboBoxItem>
@@ -52,14 +52,14 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function1" Width="220" Margin="10 0 10 0" IsReadOnly="False" />
-                <TextBox Name="register1" Width="220" Margin="0 0 10 0" IsReadOnly="False" />
+                <TextBox Name="function1" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <TextBox Name="register1" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR2 -->
             <WrapPanel Name="lfsr2Panel" Margin="0 2 0 2">
                 <Label Content="LFSR2" Margin="0 0 10 0"/>
-                <ComboBox Name="lenth2" Margin="2, 2, 2, 2" HorizontalAlignment="Center">
+                <ComboBox Name="length2" Margin="2, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="Length2DropDownClosed">
                     <ComboBoxItem>10</ComboBoxItem>
                     <ComboBoxItem>11</ComboBoxItem>
                     <ComboBoxItem>12</ComboBoxItem>
@@ -72,14 +72,14 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function2" Width="220" Margin="10 0 10 0" IsReadOnly="False" />
-                <TextBox Name="register2" Width="220" Margin="0 0 10 0" IsReadOnly="False" />
+                <TextBox Name="function2" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <TextBox Name="register2" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR3 -->
             <WrapPanel Name="lfsr3Panel" Margin="0 2 0 2">
                 <Label Content="LFSR3" Margin="0 0 10 0"/>
-                <ComboBox Name="lenth3" Margin="2, 2, 2, 2" HorizontalAlignment="Center">
+                <ComboBox Name="length3" Margin="2, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="Length3DropDownClosed">
                     <ComboBoxItem>10</ComboBoxItem>
                     <ComboBoxItem>11</ComboBoxItem>
                     <ComboBoxItem>12</ComboBoxItem>
@@ -92,8 +92,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function3" Width="220" Margin="10 0 10 0" IsReadOnly="False" />
-                <TextBox Name="register3" Width="220" Margin="0 0 10 0" IsReadOnly="False" />
+                <TextBox Name="function3" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <TextBox Name="register3" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
         </StackPanel>

@@ -11,15 +11,14 @@ namespace LFSR
 
         public Lfsr(int len) 
         {
-            Random random = new Random();
             Register = new bool[len];
             Function = new bool[len];
 
             // randomly init register values
-            for(int i=0; i<len; i++)
-            {
-                Register[i] = (random.Next(0, 1) > 0 ? true : false);
-            }
+            Random random = new Random();
+
+            for (int i = 0; i < len; i++)
+                Register[i] = (random.Next(0, 2) > 0 ? true : false);
 
             // remember initial register value
             Function = Register;
