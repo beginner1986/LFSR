@@ -31,9 +31,9 @@
             <WrapPanel>
                 <Label Content="Nazwa" />
                 <Label Content="Długość" Margin="5 0 0 0" />
-                <Label Content="Stan początkowy rejestru" />
-                <Label Content="Kolejny stan rejestru" Margin="90 0 0 0" />
-                <Label Content="Krpok rejestru" Margin="110 0 0 0" />
+                <Label Content="Funkcja w pętli sprzężenia zwrotnego" />
+                <Label Content="Kolejny stan rejestru" Margin="25 0 0 0" />
+                <Label Content="Krok rejestru" Margin="110 0 0 0" />
             </WrapPanel>
 
             <!-- LFSR1 -->
@@ -52,8 +52,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="initialState1" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
-                <TextBox Name="currentState1" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
+                <TextBox Name="function1" Width="220" Margin="10 0 10 0" IsReadOnly="False" />
+                <TextBox Name="register1" Width="220" Margin="0 0 10 0" IsReadOnly="False" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR2 -->
@@ -72,8 +72,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="initialState2" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
-                <TextBox Name="currentState2" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
+                <TextBox Name="function2" Width="220" Margin="10 0 10 0" IsReadOnly="False" />
+                <TextBox Name="register2" Width="220" Margin="0 0 10 0" IsReadOnly="False" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR3 -->
@@ -92,8 +92,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="initialState3" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
-                <TextBox Name="currentState3" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
+                <TextBox Name="function3" Width="220" Margin="10 0 10 0" IsReadOnly="False" />
+                <TextBox Name="register3" Width="220" Margin="0 0 10 0" IsReadOnly="False" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
         </StackPanel>

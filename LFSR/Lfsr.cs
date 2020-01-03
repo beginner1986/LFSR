@@ -7,13 +7,13 @@ namespace LFSR
     public class Lfsr
     {
         protected bool[] Register { get; }
-        protected bool[] InitialRegister { get; }
+        protected bool[] Function { get; }
 
         public Lfsr(int len) 
         {
             Random random = new Random();
             Register = new bool[len];
-            InitialRegister = new bool[len];
+            Function = new bool[len];
 
             // randomly init register values
             for(int i=0; i<len; i++)
@@ -22,18 +22,19 @@ namespace LFSR
             }
 
             // remember initial register value
-            InitialRegister = Register;
+            Function = Register;
         }
 
         // shift register each type
         public bool Shift()
         {
-            bool result = Register[Register.Length - 1];
+            bool result = Register[Register.Length - 1] ^ CountFunction();
 
             for(int i= Register.Length - 1; i>0; i--)
             {
                 Register[i] = Register[i - 1];
             }
+
             Register[0] = result;
 
             return result;
@@ -54,16 +55,28 @@ namespace LFSR
             return result;
         }
 
-        public string InitialToString()
+        public string FunctionToString()
         {
             string result = "";
 
-            for (int i = 0; i < InitialRegister.Length; i++)
+            for (int i = 0; i < Function.Length; i++)
             {
-                if (InitialRegister[i])
+                if (Function[i])
                     result += '1';
                 else
                     result += '0';
+            }
+
+            return result;
+        }
+
+        private bool CountFunction()
+        {
+            bool result = Function[0];
+
+            for(int i=1; i<Function.Length; i++)
+            {
+                result ^= Function[i];
             }
 
             return result;
