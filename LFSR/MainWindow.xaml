@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LFSR"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="750" ResizeMode="NoResize" Background="#FFDADADA">
+        Title="MainWindow" Height="510" Width="750" ResizeMode="NoResize" Background="#FFDADADA">
 
-    <StackPanel Margin="20 0 20 20">
+    <StackPanel Margin="20 0 20 5">
         <!-- generator type choosing -->
         <WrapPanel Margin="0 5 0 5">
             <Label Content="Długość szyfru:" Margin="0 0 16 0"/>
-            <TextBox Name="cipherLenth" Width="100"/>
-            <Label Content="Typ generatora:" Margin="20 0 0 0" />
+            <TextBox Name="cipherLenth" Width="100" Margin="0 0 20 0"/>
+            <Separator>
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
+            <Label Content="Typ generatora:" Margin="10 0 0 0" />
             <!-- TODO: Checked="" -->
             <RadioButton Name="geffe" Margin="10 0 0 0" VerticalAlignment="Center">Generator Geffe'go</RadioButton>
             <RadioButton Name="stopAndGo" Margin="10 0 0 0" VerticalAlignment="Center">Stop-ang-Go</RadioButton>
@@ -23,9 +28,14 @@
         <!-- LFSRs parameters -->
         <StackPanel Margin="0 5 0 5" Width="728">
             <!-- labels -->
-            
-            <!-- TODO -->
-            
+            <WrapPanel>
+                <Label Content="Nazwa" />
+                <Label Content="Długość" Margin="5 0 0 0" />
+                <Label Content="Stan początkowy rejestru" />
+                <Label Content="Kolejny stan rejestru" Margin="90 0 0 0" />
+                <Label Content="Krpok rejestru" Margin="110 0 0 0" />
+            </WrapPanel>
+
             <!-- LFSR1 -->
             <WrapPanel Name="lfsr1Panel" Margin="0 2 0 2">
                 <Label Content="LFSR1" Margin="0 0 10 0"/>
@@ -42,8 +52,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function1" Width="220" Margin="10 0 10 0" />
-                <TextBox Name="register1" Width="220" Margin="0 0 10 0" />
+                <TextBox Name="initialState1" Width="220" Margin="10 0 10 0" />
+                <TextBox Name="currentState1" Width="220" Margin="0 0 10 0" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR2 -->
@@ -62,8 +72,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function2" Width="220" Margin="10 0 10 0" />
-                <TextBox Name="register2" Width="220" Margin="0 0 10 0" />
+                <TextBox Name="initialState2" Width="220" Margin="10 0 10 0" />
+                <TextBox Name="currentState2" Width="220" Margin="0 0 10 0" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
             <!-- LFSR3 -->
@@ -82,8 +92,8 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function3" Width="220" Margin="10 0 10 0" />
-                <TextBox Name="register3" Width="220" Margin="0 0 10 0" />
+                <TextBox Name="initialState3" Width="220" Margin="10 0 10 0" />
+                <TextBox Name="currentState3" Width="220" Margin="0 0 10 0" />
                 <Button Width="130">Shift</Button>
             </WrapPanel>
         </StackPanel>
@@ -99,7 +109,7 @@
         <Separator/>
         
         <!-- tests results -->
-        <WrapPanel Margin="0 5 0 5">
+        <WrapPanel Margin="0 0 0 5">
             <Label Content="Wyniki testów:" />
             <Label Content="// TODO"/>
         </WrapPanel>
