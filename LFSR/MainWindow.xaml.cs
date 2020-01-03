@@ -219,8 +219,21 @@ namespace LFSR
 
         private bool LongRunsTest(string sample)
         {
-            // TODO
-            return false;
+            int repetitionsCount = 0;
+
+            for(int i=1; i<sample.Length; i++)
+            {
+                if (sample[i] == sample[i - 1])
+                {
+                    repetitionsCount++;
+                    if (repetitionsCount > 26)
+                        return false;
+                }
+                else
+                    repetitionsCount = 0;
+            }
+
+            return true;
         }
 
         private string RunGenerators(int length)
