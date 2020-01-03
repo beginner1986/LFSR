@@ -24,5 +24,29 @@ namespace LFSR
         {
             InitializeComponent();
         }
+
+        private void geffeChecked(object sender, RoutedEventArgs e)
+        {
+            // enable needed registers
+            lfsr1Panel.IsEnabled = true;
+            lfsr2Panel.IsEnabled = true;
+            lfsr3Panel.IsEnabled = true;
+        }
+
+        private void stopAndGoChecked(object sender, RoutedEventArgs e)
+        {
+            // enable needed registers
+            lfsr1Panel.IsEnabled = true;
+            lfsr2Panel.IsEnabled = true;
+            lfsr3Panel.IsEnabled = false;
+        }
+
+        private void shrinkingChecked(object sender, RoutedEventArgs e)
+        {
+            // enable needed registers
+            lfsr1Panel.IsEnabled = true;
+            lfsr2Panel.IsEnabled = true;
+            lfsr3Panel.IsEnabled = true;
+        }
     }
 }
