@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LFSR
 {
@@ -132,169 +120,33 @@ namespace LFSR
                 PerformTests(sample);
         }
 
-        private string GeffeGenerator(int len)
-        {
-            string result = "";
-
-            for(int i=0; i<len; i++)
-            {
-                bool reg1 = lfsr1.Shift();
-                bool reg2 = lfsr2.Shift();
-                bool reg3 = lfsr3.Shift();
-
-                bool bit = (reg1 & reg2) ^(!reg2 & reg3);
-
-                result += bit ? "1" : "0";
-            }
-
-            return result;
-        }
-
-        private string StopAndGoGenerator(int len)
-        {
-            string result = "";
-
-            bool reg1;
-            bool reg2 = false;
-            bool reg3 = false;
-            bool bit;
-
-            while(result.Length < len)
-            {
-                reg1 = lfsr1.Shift();
-
-                if (reg1)
-                    lfsr2.Shift();
-                else
-                    reg3 = lfsr3.Shift();
-
-                bit = reg2 ^ reg3;
-
-                result += bit ? "1" : "0";
-            }
-
-            return result;
-        }
-
-        private string ShrinkingGenerator(int len)
-        {
-            string result = "";
-
-            while (result.Length < len)
-            {
-                bool reg1 = lfsr1.Shift();
-                bool reg2 = lfsr2.Shift();
-                bool bit;
-
-                if (reg1)
-                {
-                    bit = reg2;
-                    result += bit ? "1" : "0";
-                }
-            }
-
-            return result;
-        }
-
-        private bool MonobitTest(string sample)
-        {
-            int onesCount = 0;
-
-            foreach(char c in sample)
-            {
-                if (c == '1')
-                    onesCount++;
-            }
-
-            if (onesCount < 9725 || onesCount > 10275)
-                return false;
-            else
-                return true;
-        }
-
-        private bool PokerTest(string sample)
-        {
-            // all 16 possible bit configurations occurances count - f(i)
-            int[] counts = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
-            // split sample bit stream into substrings
-            for(int i=0; i<20000; i+=4)
-            {
-                // current substring
-                string bits = sample.Substring(i, 4);
-                // decimal value of the current binary substring
-                int bitsValue = 0;
-
-                // count decimal value of the current substring
-                for(int j=0; j<4; j++)
-                {
-                    if (bits[j] == '1')
-                        bitsValue += (int)Math.Pow(2, 3 - j);
-                }           
-                
-                // increment adequate occurances counter
-                counts[bitsValue]++;
-            }
-
-            // calculate x - the reference value for the test
-            double x = 0;
-            for (int i = 0; i < 16; i++)
-                x = (double)counts[i] * (double)counts[i];
-
-            x *= (16.0 / 5000.0);
-            x -= 5000.0;
-
-            // DEBUG
-            /*
-            resultTextBox.Text = x.ToString() + "\n\n";
-
-            for (int i = 0; i < 16; i++)
-                resultTextBox.Text += counts[i] + " ";
-             */
-
-            // check the condition and return the result
-            return (2.16 < x) && (x < 46.17);
-        }
-
-        private bool LongRunsTest(string sample)
-        {
-            int repetitionsCount = 0;
-
-            for(int i=1; i<sample.Length; i++)
-            {
-                if (sample[i] == sample[i - 1])
-                {
-                    repetitionsCount++;
-                    if (repetitionsCount > 26)
-                        return false;
-                }
-                else
-                    repetitionsCount = 0;
-            }
-
-            return true;
-        }
-
         private string RunGenerators(int length)
         {
+            Generators generators = new Generators(lfsr1, lfsr2, lfsr3);
+
+            // make sample for testiong
             string sample = "";
             int sampleLenght = 20000;
 
+            // run the Geffe generator
             if (geffe.IsChecked == true)
             {
-                resultTextBox.Text = GeffeGenerator(length);
-                sample = GeffeGenerator(sampleLenght);
+                resultTextBox.Text = generators.GeffeGenerator(length);
+                sample = generators.GeffeGenerator(sampleLenght);
             }
+            // run the Stop-And-Go generator
             else if (stopAndGo.IsChecked == true)
             {
-                resultTextBox.Text = StopAndGoGenerator(length);
-                sample = StopAndGoGenerator(sampleLenght);
+                resultTextBox.Text = generators.StopAndGoGenerator(length);
+                sample = generators.StopAndGoGenerator(sampleLenght);
             }
+            // run the Shrinking generator
             else if (shrinking.IsChecked == true)
             {
-                resultTextBox.Text = ShrinkingGenerator(length);
-                sample = ShrinkingGenerator(sampleLenght);
+                resultTextBox.Text = generators.ShrinkingGenerator(length);
+                sample = generators.ShrinkingGenerator(sampleLenght);
             }
+            // no generator type selected
             else
             {
                 resultTextBox.Text = "Zaznacz typ generatora, który chcesżyć";
@@ -310,17 +162,20 @@ namespace LFSR
 
         private void PerformTests(string sample)
         {
-            if (MonobitTest(sample))
+            // class containing test methods
+            Tests tests = new Tests();
+
+            if (tests.MonobitTest(sample))
                 monobitTest.Content = "OK";
             else
                 monobitTest.Content = "FAIL";
 
-            if (PokerTest(sample))
+            if (tests.PokerTest(sample))
                 pokerTest.Content = "OK";
             else
                 pokerTest.Content = "FAIL";
 
-            if (LongRunsTest(sample))
+            if (tests.LongRunsTest(sample))
                 longRunsTest.Content = "OK";
             else
                 longRunsTest.Content = "FAIL";

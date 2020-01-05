@@ -4,8 +4,8 @@ namespace LFSR
 {
     public class Lfsr
     {
-        protected bool[] Register { get; }
-        protected bool[] Function { get; }
+        protected bool[] Register { get; }  // register value
+        protected bool[] Function { get; }  // feedback loop function
 
         public Lfsr(int len) 
         {
@@ -22,10 +22,10 @@ namespace LFSR
             Function = Register;
         }
 
-        // shift register each type
+        // shift the register
         public bool Shift()
         {
-            bool result = Register[^1]; // ^1 = Register.Length - 1
+            bool result = Register[^1]; // ^1 == Register.Length - 1
 
             for (int i=1; i<Function.Length; i++)
             {
