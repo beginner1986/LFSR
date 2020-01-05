@@ -166,19 +166,37 @@ namespace LFSR
             Tests tests = new Tests();
 
             if (tests.MonobitTest(sample))
-                monobitTest.Content = "OK";
+            {
+                monobitOkIcon.Visibility = Visibility.Visible;
+                monobitFailIcon.Visibility = Visibility.Hidden;
+            }
             else
-                monobitTest.Content = "FAIL";
+            {
+                monobitOkIcon.Visibility = Visibility.Hidden;
+                monobitFailIcon.Visibility = Visibility.Visible;
+            }
 
             if (tests.PokerTest(sample))
-                pokerTest.Content = "OK";
+            {
+                pokerOkIcon.Visibility = Visibility.Visible;
+                pokerFailIcon.Visibility = Visibility.Hidden;
+            }
             else
-                pokerTest.Content = "FAIL";
+            {
+                pokerOkIcon.Visibility = Visibility.Hidden;
+                pokerFailIcon.Visibility = Visibility.Visible;
+            }
 
             if (tests.LongRunsTest(sample))
-                longRunsTest.Content = "OK";
+            {
+                longRunsOkIcon.Visibility = Visibility.Visible;
+                longRunsFailIcon.Visibility = Visibility.Hidden;
+            }
             else
-                longRunsTest.Content = "FAIL";
+            {
+                longRunsOkIcon.Visibility = Visibility.Hidden;
+                longRunsFailIcon.Visibility = Visibility.Visible;
+            }
         }
     }
 }

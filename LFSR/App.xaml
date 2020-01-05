@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:LFSR"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary x:Name="IconsDictionary" Source="Icons.xaml" />
     </Application.Resources>
 </Application>

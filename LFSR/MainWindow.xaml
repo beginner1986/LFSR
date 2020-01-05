@@ -54,7 +54,7 @@
                 </ComboBox>
                 <TextBox Name="function1" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register1" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
-                <Button Width="130" Click="ButtonShift1Click">Shift</Button>
+                <Button Width="125" Click="ButtonShift1Click">Shift</Button>
             </WrapPanel>
             <!-- LFSR2 -->
             <WrapPanel Name="lfsr2Panel" Margin="0 2 0 2">
@@ -74,7 +74,7 @@
                 </ComboBox>
                 <TextBox Name="function2" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register2" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
-                <Button Width="130" Click="ButtonShift2Click">Shift</Button>
+                <Button Width="125" Click="ButtonShift2Click">Shift</Button>
             </WrapPanel>
             <!-- LFSR3 -->
             <WrapPanel Name="lfsr3Panel" Margin="0 2 0 2">
@@ -94,7 +94,7 @@
                 </ComboBox>
                 <TextBox Name="function3" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register3" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
-                <Button Width="130" Click="ButtonShift3Click">Shift</Button>
+                <Button Width="125" Click="ButtonShift3Click">Shift</Button>
             </WrapPanel>
         </StackPanel>
         
@@ -109,14 +109,72 @@
         <Separator/>
         
         <!-- tests results -->
-        <WrapPanel Margin="0 0 0 5">
-            <Label Content="Wyniki testów:" />
-            <Label Content="pojedynczych bitów"/>
-            <Label Name="monobitTest" Content=" "/>
-            <Label Content="pkerowy"/>
-            <Label Name="pokerTest" Content=" "/>
-            <Label Content="długich podciągów"/>
-            <Label Name="longRunsTest" Content=" "/>
+        <WrapPanel Margin="0 0 0 5" HorizontalAlignment="Center">
+            <Separator>
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
+            
+            <!-- monobit test -->
+            <Label Content="Test pojedynczych bitów"/>
+            <!-- test passed icon -->
+            <Rectangle Name="monobitOkIcon" Width="15" Height="15" Fill="Green" Visibility="Hidden">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{StaticResource OkIcon}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <!-- test failed icon -->
+            <Rectangle Name="monobitFailIcon" Width="15" Height="15" Fill="Red" Visibility="Hidden">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{StaticResource FailedIcon}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <Separator>
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
+            
+            <!-- poker test -->
+            <Label Content="Test pokerowy"/>
+            <!-- test passed icon -->
+            <Rectangle Name="pokerOkIcon" Width="15" Height="15" Fill="Green" Visibility="Hidden">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{StaticResource OkIcon}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <!-- test failed icon -->
+            <Rectangle Name="pokerFailIcon" Width="15" Height="15" Fill="Red" Visibility="Hidden">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{StaticResource FailedIcon}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <Separator>
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
+            
+            <!-- the long runs test -->
+            <Label Content="Test długich podciągów"/>
+            <!-- test passed icon -->
+            <Rectangle Name="longRunsOkIcon" Width="15" Height="15" Fill="Green" Visibility="Hidden">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{StaticResource OkIcon}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <!-- test failed icon -->
+            <Rectangle Name="longRunsFailIcon" Width="15" Height="15" Fill="Red" Visibility="Hidden">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{StaticResource FailedIcon}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <Separator>
+                <Separator.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Separator.LayoutTransform>
+            </Separator>
         </WrapPanel>
 
     </StackPanel>
