@@ -128,7 +128,8 @@ namespace LFSR
             string sample = RunGenerators(length);
 
             // perform the tests and update results in GUI
-            PerformTests(sample);
+            if(sample != "")
+                PerformTests(sample);
         }
 
         private string GeffeGenerator(int len)
@@ -213,8 +214,46 @@ namespace LFSR
 
         private bool PokerTest(string sample)
         {
-            // TODO
-            return false;
+            // all 16 possible bit configurations occurances count - f(i)
+            int[] counts = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+            // split sample bit stream into substrings
+            for(int i=0; i<20000; i+=4)
+            {
+                // current substring
+                string bits = sample.Substring(i, 4);
+                // decimal value of the current binary substring
+                int bitsValue = 0;
+
+                // count decimal value of the current substring
+                for(int j=0; j<4; j++)
+                {
+                    if (bits[j] == '1')
+                        bitsValue += (int)Math.Pow(2, 3 - j);
+                }           
+                
+                // increment adequate occurances counter
+                counts[bitsValue]++;
+            }
+
+            // calculate x - the reference value for the test
+            double x = 0;
+            for (int i = 0; i < 16; i++)
+                x = (double)counts[i] * (double)counts[i];
+
+            x *= (16.0 / 5000.0);
+            x -= 5000.0;
+
+            // DEBUG
+            /*
+            resultTextBox.Text = x.ToString() + "\n\n";
+
+            for (int i = 0; i < 16; i++)
+                resultTextBox.Text += counts[i] + " ";
+             */
+
+            // check the condition and return the result
+            return (2.16 < x) && (x < 46.17);
         }
 
         private bool LongRunsTest(string sample)
