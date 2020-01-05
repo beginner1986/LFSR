@@ -4,40 +4,40 @@ namespace LFSR
 {
     public class Lfsr
     {
-        protected bool[] Register { get; }  // register value
-        protected bool[] Function { get; }  // feedback loop function
+        private readonly bool[] register;   // register value
+        protected bool[] function; // feedback loop function
 
         public Lfsr(int len) 
         {
-            Register = new bool[len];
-            Function = new bool[len];
+            register = new bool[len];
+            function = new bool[len];
 
             // randomly init register values
             Random random = new Random();
 
             for (int i = 0; i < len; i++)
-                Register[i] = (random.Next(0, 2) > 0 ? true : false);
+                register[i] = (random.Next(0, 2) > 0 ? true : false);
 
             // remember initial register value
-            Function = Register;
+            function = register;
         }
 
         // shift the register
         public bool Shift()
         {
-            bool result = Register[^1]; // ^1 == Register.Length - 1
+            bool result = register[^1]; // ^1 == Register.Length - 1
 
-            for (int i=1; i<Function.Length; i++)
+            for (int i=1; i<function.Length; i++)
             {
-                result ^= Function[i];
+                result ^= function[i];
             }
 
-            for(int i= Register.Length - 1; i>0; i--)
+            for(int i= register.Length - 1; i>0; i--)
             {
-                Register[i] = Register[i - 1];
+                register[i] = register[i - 1];
             }
 
-            Register[0] = result;
+            register[0] = result;
 
             return result;
         }
@@ -46,9 +46,9 @@ namespace LFSR
         {
             string result = "";
 
-            for(int i=0; i<Register.Length; i++)
+            for(int i=0; i<register.Length; i++)
             {
-                if (Register[i])
+                if (register[i])
                     result += '1';
                 else
                     result += '0';
@@ -61,9 +61,9 @@ namespace LFSR
         {
             string result = "";
 
-            for (int i = 0; i < Function.Length; i++)
+            for (int i = 0; i < function.Length; i++)
             {
-                if (Function[i])
+                if (function[i])
                     result += '1';
                 else
                     result += '0';
