@@ -75,6 +75,23 @@ namespace LFSR
             function3.Text = lfsr3.FunctionToString();
         }
 
+        private void FreeBit1DropDownClosed(object sender, EventArgs e)
+        {
+            bool value = (int.Parse(freeBit1.Text) != 0 ? true : false);
+            lfsr1.FreeBit = value;
+        }
+
+        private void FreeBit2DropDownClosed(object sender, EventArgs e)
+        {
+            bool value = (int.Parse(freeBit2.Text) != 0 ? true : false);
+            lfsr2.FreeBit = value;
+        }
+        private void FreeBit3DropDownClosed(object sender, EventArgs e)
+        {
+            bool value = (int.Parse(freeBit3.Text) != 0 ? true : false);
+            lfsr3.FreeBit = value;
+        }
+
         private void ButtonShift1Click(object sender, RoutedEventArgs e)
         {
             lfsr1.Shift();

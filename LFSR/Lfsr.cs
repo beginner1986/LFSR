@@ -5,7 +5,8 @@ namespace LFSR
     public class Lfsr
     {
         private readonly bool[] register;   // register value
-        protected bool[] function; // feedback loop function
+        private bool[] function; // feedback loop function
+        public bool FreeBit { get; set; }
 
         public Lfsr(int len) 
         {
@@ -30,6 +31,7 @@ namespace LFSR
             for (int i=1; i<function.Length; i++)
             {
                 result ^= function[i];
+                result ^= FreeBit;
             }
 
             for(int i= register.Length - 1; i>0; i--)

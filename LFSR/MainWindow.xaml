@@ -52,7 +52,11 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function1" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <ComboBox Name="freeBit1" Width="40" Margin="10, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="FreeBit1DropDownClosed">
+                    <ComboBoxItem>0</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="function1" Width="173" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register1" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="125" Click="ButtonShift1Click">Shift</Button>
             </WrapPanel>
@@ -72,7 +76,11 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function2" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <ComboBox Name="freeBit2" Width="40" Margin="10, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="FreeBit2DropDownClosed">
+                    <ComboBoxItem>0</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="function2" Width="173" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register2" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="125" Click="ButtonShift2Click">Shift</Button>
             </WrapPanel>
@@ -92,7 +100,11 @@
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
                 </ComboBox>
-                <TextBox Name="function3" Width="220" Margin="10 0 10 0" IsReadOnly="True" />
+                <ComboBox Name="freeBit3" Width="40" Margin="10, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="FreeBit3DropDownClosed">
+                    <ComboBoxItem>0</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                </ComboBox>
+                <TextBox Name="function3" Width="173" Margin="10 0 10 0" IsReadOnly="True" />
                 <TextBox Name="register3" Width="220" Margin="0 0 10 0" IsReadOnly="True" />
                 <Button Width="125" Click="ButtonShift3Click">Shift</Button>
             </WrapPanel>
