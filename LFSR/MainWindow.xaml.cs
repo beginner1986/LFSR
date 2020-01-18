@@ -40,7 +40,7 @@ namespace LFSR
             // enable needed registers
             lfsr1Panel.IsEnabled = true;
             lfsr2Panel.IsEnabled = true;
-            lfsr3Panel.IsEnabled = false;
+            lfsr3Panel.IsEnabled = true;
         }
 
         private void ShrinkingChecked(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace LFSR
             // enable needed registers
             lfsr1Panel.IsEnabled = true;
             lfsr2Panel.IsEnabled = true;
-            lfsr3Panel.IsEnabled = true;
+            lfsr3Panel.IsEnabled = false;
         }
         
         private void Length1DropDownClosed(object sender, EventArgs e)

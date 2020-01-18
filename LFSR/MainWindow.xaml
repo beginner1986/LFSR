@@ -51,6 +51,10 @@
                     <ComboBoxItem>18</ComboBoxItem>
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>25</ComboBoxItem>
+                    <ComboBoxItem>30</ComboBoxItem>
+                    <ComboBoxItem>40</ComboBoxItem>
+                    <ComboBoxItem>50</ComboBoxItem>
                 </ComboBox>
                 <ComboBox Name="freeBit1" Width="40" Margin="10, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="FreeBit1DropDownClosed">
                     <ComboBoxItem>0</ComboBoxItem>
@@ -75,6 +79,10 @@
                     <ComboBoxItem>18</ComboBoxItem>
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>25</ComboBoxItem>
+                    <ComboBoxItem>30</ComboBoxItem>
+                    <ComboBoxItem>40</ComboBoxItem>
+                    <ComboBoxItem>50</ComboBoxItem>
                 </ComboBox>
                 <ComboBox Name="freeBit2" Width="40" Margin="10, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="FreeBit2DropDownClosed">
                     <ComboBoxItem>0</ComboBoxItem>
@@ -99,6 +107,10 @@
                     <ComboBoxItem>18</ComboBoxItem>
                     <ComboBoxItem>19</ComboBoxItem>
                     <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>25</ComboBoxItem>
+                    <ComboBoxItem>30</ComboBoxItem>
+                    <ComboBoxItem>40</ComboBoxItem>
+                    <ComboBoxItem>50</ComboBoxItem>
                 </ComboBox>
                 <ComboBox Name="freeBit3" Width="40" Margin="10, 2, 2, 2" HorizontalAlignment="Center" DropDownClosed="FreeBit3DropDownClosed">
                     <ComboBoxItem>0</ComboBoxItem>
