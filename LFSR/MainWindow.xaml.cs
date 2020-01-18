@@ -166,7 +166,7 @@ namespace LFSR
             // no generator type selected
             else
             {
-                resultTextBox.Text = "Zaznacz typ generatora, który chcesżyć";
+                resultTextBox.Text = "Zaznacz typ generatora, który chces użyć";
             }
 
             // update registers values in TextBoxes
